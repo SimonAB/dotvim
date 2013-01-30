@@ -58,8 +58,9 @@ set history=700
 set clipboard=unnamed
 
 " Enable filetype plugins
-filetype plugin on
-filetype indent on
+if has("autocmd")
+  filetype plugin indent on
+endif
 
 " Set to auto read when a file is changed on disk from the outside
 set autoread
@@ -242,10 +243,7 @@ set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
 
 " Markdown-folding
 set nocompatible
-if has("autocmd")
-  filetype plugin indent on
-endif
-" let g:markdown_fold_style = 'nested'
+let g:markdown_fold_style = 'nested'
 
 " ignore all whitespace and sync
 set diffopt=filler,iwhite 

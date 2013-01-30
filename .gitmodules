@@ -38,3 +38,6 @@
 	path = bundle/NERDtree
 	url = https://github.com/scrooloose/nerdtree.git
     ignore = dirty
+[submodule "bundle/increment"]
+	path = bundle/increment
+	url = https://github.com/triglav/vim-visual-increment.git
