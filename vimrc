@@ -256,6 +256,8 @@ set diffopt=filler,iwhite
 vnoremap <silent> * :call VisualSelection('f', '')<CR>
 vnoremap <silent> # :call VisualSelection('b', '')<CR>
 
+" Visual increment: enable alphabetical incrementation
+set nrformats=alpha
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, tabs, windows and buffers
