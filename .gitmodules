@@ -9,24 +9,32 @@
 [submodule "bundle/pandoc"]
 	path = bundle/pandoc
 	url = https://github.com/vim-pandoc/vim-pandoc.git
+    ignore = dirty
 [submodule "bundle/vim-r"]
 	path = bundle/vim-r
 	url = https://github.com/vim-scripts/Vim-R-plugin.git
+    ignore = dirty
 [submodule "bundle/csv"]
 	path = bundle/csv
 	url = https://github.com/chrisbra/csv.vim.git
+    ignore = dirty
 [submodule "bundle/voom"]
 	path = bundle/voom
 	url = https://github.com/vim-voom/vim-voom.github.com.git
+    ignore = dirty
 [submodule "bundle/tabular"]
 	path = bundle/tabular
 	url = https://github.com/godlygeek/tabular.git
+    ignore = dirty
 [submodule "bundle/CtrlP"]
 	path = bundle/CtrlP
 	url = https://github.com/kien/ctrlp.vim.git
+    ignore = dirty
 [submodule "bundle/gundo"]
 	path = bundle/gundo
 	url = https://github.com/sjl/gundo.vim.git
+    ignore = dirty
 [submodule "bundle/NERDtree"]
 	path = bundle/NERDtree
 	url = https://github.com/scrooloose/nerdtree.git
+    ignore = dirty
