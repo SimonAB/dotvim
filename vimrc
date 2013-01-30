@@ -490,6 +490,7 @@ endfunction
 " Open current buffer in Marked.app by typing `:Mkd` (note that
 " user-defined commands must start with an uppercase letter.
 command! Mkd silent !open -a "Marked.app" "%:p"
+nmap <leader>md :Mkd<cr>
 
 " Make the current file executable
-nmap ,x :w<cr>:!chmod 755 %<cr>:e<cr>
+nmap <leader>x :w<cr>:!chmod 755 %<cr>:e<cr>
