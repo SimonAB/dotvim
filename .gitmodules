@@ -24,3 +24,9 @@
 [submodule "bundle/CtrlP"]
 	path = bundle/CtrlP
 	url = https://github.com/kien/ctrlp.vim.git
+[submodule "bundle/gundo"]
+	path = bundle/gundo
+	url = https://github.com/sjl/gundo.vim.git
+[submodule "bundle/NERDtree"]
+	path = bundle/NERDtree
+	url = https://github.com/scrooloose/nerdtree.git
