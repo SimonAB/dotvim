@@ -145,7 +145,8 @@ set number
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Favourite colorscheme
 try
-    colorscheme xoria256 "(SB)
+    let g:zenesque_colors=3
+    colorscheme zenesque
 catch
 endtry
 
@@ -295,7 +296,7 @@ map <leader>tn :tabnew<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
 map <leader>tm :tabmove 
-map <leader>t<leader> :tabnext 
+map <leader>t<leader> :tabnext<cr>
 
 " Opens a new tab with the current buffer's path
 " Super useful when editing files in the same directory
@@ -338,18 +339,12 @@ set statusline=%f\ %m\ %r%{fugitive#statusline()}\ %h\ Line:%l/%L[%p%%]\ Col:%v\
 " Remap VIM 0 to first non-blank character
 map 0 ^
 
-" Move a line of text using ALT+[jk] or Comamnd+[jk] on mac
-nmap <M-j> mz:m+<cr>`z
-nmap <M-k> mz:m-2<cr>`z
-vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
-vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
-
-if has("mac") || has("macunix")
-  nmap <D-j> <M-j>
-  nmap <D-k> <M-k>
-  vmap <D-j> <M-j>
-  vmap <D-k> <M-k>
-endif
+" Bubble single lines (relies on Tim Pope's pluggin unimpaired)
+nmap <C-Up> [e
+nmap <C-Down> ]e
+" Bubble multiple lines (relies on Tim Pope's pluggin unimpaired)
+vmap <C-Up> [egv
+vmap <C-Down> ]egv
 
 " Delete trailing white space on save, useful for Python and CoffeeScript ;)
 func! DeleteTrailingWS()
