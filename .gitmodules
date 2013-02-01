@@ -18,10 +18,6 @@
 	path = bundle/csv
 	url = https://github.com/chrisbra/csv.vim.git
     ignore = dirty
-[submodule "bundle/voom"]
-	path = bundle/voom
-	url = https://github.com/vim-scripts/VOoM.git
-    ignore = dirty
 [submodule "bundle/tabular"]
 	path = bundle/tabular
 	url = https://github.com/godlygeek/tabular.git
@@ -58,3 +54,6 @@
 	path = bundle/unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
     ignore = dirty
+[submodule "bundle/voom"]
+	path = bundle/voom
+	url = https://github.com/vim-scripts/VOoM.git
