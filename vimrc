@@ -145,8 +145,9 @@ set number
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Favourite colorscheme
 try
-    let g:zenesque_colors=3
-    colorscheme zenesque
+    " let g:zenesque_colors=3
+    " colorscheme zenesque
+    colorscheme modokai
 catch
 endtry
 
