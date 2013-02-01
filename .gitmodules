@@ -54,3 +54,6 @@
 	path = bundle/unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
     ignore = dirty
+[submodule "bundle/solarized"]
+	path = bundle/solarized
+	url = https://github.com/altercation/vim-colors-solarized.git

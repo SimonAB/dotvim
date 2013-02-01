@@ -144,18 +144,19 @@ set number
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Favourite colorscheme
+set background=dark
 try
     " let g:zenesque_colors=3
     " colorscheme zenesque
-    colorscheme modokai
+    colorscheme solarized
 catch
 endtry
 
-" Favourite font
-set guifont=Source\ Code\ Pro\ Light:h13
-
 " Enable syntax highlighting
 syntax enable 
+
+" Favourite font
+set guifont=Source\ Code\ Pro\ Light:h13
 
 " Set extra options when running in GUI mode
 if has("gui_running")
