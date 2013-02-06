@@ -152,11 +152,15 @@ try
 catch
 endtry
 
-" Enable syntax highlighting
-syntax enable 
-
 " Favourite font
 set guifont=Source\ Code\ Pro\ Light:h13
+
+" Toggle light and dark themes
+nmap <leader>d :set bg=dark<cr>:set guifont=Source\ Code\ Pro\ Light:h13<cr>
+nmap <leader>l :set bg=light<cr>:set guifont=Source\ Code\ Pro:h13<cr>
+
+" Enable syntax highlighting
+syntax enable 
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -482,7 +486,7 @@ endfunction
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Custom commands & mappings
+" => Custom commands
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Open current buffer in Marked.app by typing `:Mkd` (note that
 " user-defined commands must start with an uppercase letter.
