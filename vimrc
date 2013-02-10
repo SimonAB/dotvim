@@ -95,7 +95,7 @@ endif
 set ruler
 
 " Height of the command bar
-set cmdheight=2
+set cmdheight=1
 
 " A buffer becomes hidden when it is abandoned
 set hid
@@ -243,7 +243,7 @@ set si "Smart indent
 
 " Enable code folding
 set foldenable
-set foldlevel=1
+set foldlevelstart=1
 
 " These commands open folds
 set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
@@ -486,7 +486,7 @@ endfunction
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Custom commands
+" => Custom commands & mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Open current buffer in Marked.app by typing `:Mkd` (note that
 " user-defined commands must start with an uppercase letter.
@@ -495,3 +495,6 @@ nmap <leader>md :Mkd<cr>
 
 " Make the current file executable
 nmap <leader>x :w<cr>:!chmod 755 %<cr>:e<cr>
+
+" Toggle Gundo
+map <F5> :GundoToggle<cr>
