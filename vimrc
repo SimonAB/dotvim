@@ -143,20 +143,14 @@ set number
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set background=dark
+
 " Favourite colorscheme
 let g:fullscreen_colorscheme = "iawriter"
-let g:fullscreen_font = "Cousine:h15"
+let g:fullscreen_font = "Cousine:h16"
 let g:normal_colorscheme = "solarized"
 let g:normal_font= "Source\ Code\ Pro\ Light:h15"
 
-"set background=dark
-"try
-"    colorscheme solarized
-"catch
-"endtry
-
-" Favourite font
-" set guifont=Source\ Code\ Pro\ Light:h15
 
 " Toggle light and dark themes
 nmap <leader>d :set bg=dark<cr>:set guifont=Source\ Code\ Pro\ Light:h15<cr>
@@ -180,7 +174,7 @@ set encoding=utf8
 set ffs=unix,dos,mac
 
 " Set up the gui cursor to look nice
-set guicursor=n-v-c:block-Cursor-blinkon0,ve:ver35-Cursor,o:hor50-Cursor,i-ci:ver25-Cursor,r-cr:hor20-Cursor,sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
+set guicursor=n-v-c:block-Cursor-blinkon0,ve:ver35-Cursor,o:hor50-Cursor,i-ci:ver25-Cursor-blinkwait700-blinkoff400-blinkon800,r-cr:hor20-Cursor,sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
 
 " Hide MacVim toolbar by default
 set go-=T
