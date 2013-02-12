@@ -45,11 +45,6 @@ execute pathogen#infect()
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
-" automatically reload vimrc when it's saved
-augroup AutoReloadVimRC
-  au!
-  au BufWritePost $MYVIMRC so $MYVIMRC
-augroup END
 
 " Sets how many lines of history VIM has to remember
 set history=700
@@ -182,35 +177,6 @@ set go-=T
 " Keep 3 lines below and above the cursor
 set scrolloff=3 
 
-" > " turn-on coding theme for non-text editing
-" > au BufNewFile,BufRead *.{r,vim} call NormalWriting()
-" > function! NormalWriting()
-" >     colorscheme solarized
-" >     set background=dark
-" >     set gguifont=Source\ Code\ Pro\ Light:h15   " font to use
-" >     set lines=40 columns=100           " size of the editable area
-" >    "set fuoptions=background:#00f5f6f6 " macvim specific setting for editor's background color 
-" >    "set guioptions-=r                  " remove right scrollbar
-" >    "set laststatus=0                   " don't show status line
-" >    "set noruler                        " don't show ruler
-" >    "set fullscreen                     " go to fullscreen editing mode
-" >     set linebreak                      " break the lines on words
-" > endfunction
-" > 
-" > " turn-on distraction free writing mode for markdown files
-" > au BufRead *.{md,mdown,mkd,mkdn,markdown,mdwn} call DistractionFreeWriting()
-" > function! DistractionFreeWriting()
-" >     colorscheme iawriter
-" >     set background=light
-" >     set gfn=Cousine:h15                " font to use
-" >     set lines=40 columns=100           " size of the editable area
-" >     set fuoptions=background:#00f5f6f6 " macvim specific setting for editor's background color
-" >     set guioptions-=r                  " remove right scrollbar
-" >     set laststatus=0                   " don't show status line
-" >     set noruler                        " don't show ruler
-" >     set fullscreen                     " go to fullscreen editing mode
-" >     set linebreak                      " break the lines on words
-" > endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Line wrapping, line breaks, textwidth
