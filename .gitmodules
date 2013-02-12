@@ -63,3 +63,6 @@
 [submodule "bundle/tcomment"]
 	path = bundle/tcomment
 	url = https://github.com/tomtom/tcomment_vim.git
+[submodule "bundle/distraction-free"]
+	path = bundle/distraction-free
+	url = https://github.com/laktek/distraction-free-writing-vim.git

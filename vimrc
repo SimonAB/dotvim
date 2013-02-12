@@ -144,15 +144,19 @@ set number
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Favourite colorscheme
+let g:fullscreen_colorscheme = "iawriter"
+let g:fullscreen_font = "Cousine:h15"
+let g:normal_colorscheme = "solarized"
+let g:normal_font= "Source\ Code\ Pro\ Light:h15"
 
-set background=dark
-try
-    colorscheme solarized
-catch
-endtry
+"set background=dark
+"try
+"    colorscheme solarized
+"catch
+"endtry
 
 " Favourite font
-set guifont=Source\ Code\ Pro\ Light:h15
+" set guifont=Source\ Code\ Pro\ Light:h15
 
 " Toggle light and dark themes
 nmap <leader>d :set bg=dark<cr>:set guifont=Source\ Code\ Pro\ Light:h15<cr>
