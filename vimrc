@@ -142,14 +142,14 @@ set background=dark
 
 " Favourite colorscheme
 let g:fullscreen_colorscheme = "iawriter"
-let g:fullscreen_font = "Cousine:h16"
+let g:fullscreen_font = "Cousine:h14"
 let g:normal_colorscheme = "solarized"
-let g:normal_font= "Source\ Code\ Pro\ Light:h15"
+let g:normal_font= "Source\ Code\ Pro\ Light:h14"
 
 
 " Toggle light and dark themes
-nmap <leader>d :set bg=dark<cr>:set guifont=Source\ Code\ Pro\ Light:h15<cr>
-nmap <leader>l :set bg=light<cr>:set guifont=Source\ Code\ Pro:h15<cr>
+nmap <leader>d :set bg=dark<cr>:set guifont=Source\ Code\ Pro\ Light:h14<cr>
+nmap <leader>l :set bg=light<cr>:set guifont=Source\ Code\ Pro:h14<cr>
 
 " Enable syntax highlighting
 syntax enable 
