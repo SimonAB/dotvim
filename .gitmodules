@@ -69,6 +69,3 @@
 [submodule "bundle/criticmarkup"]
 	path = bundle/criticmarkup
 	url = https://github.com/goldfeld/criticmarkup-vim.git
-[submodule "bundle/todo"]
-	path = bundle/todo
-	url = https://github.com/codegram/vim-todo.git
