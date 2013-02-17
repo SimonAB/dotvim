@@ -66,3 +66,6 @@
 [submodule "bundle/distraction-free"]
 	path = bundle/distraction-free
 	url = https://github.com/laktek/distraction-free-writing-vim.git
+[submodule "bundle/criticmarkup"]
+	path = bundle/criticmarkup
+	url = https://github.com/goldfeld/criticmarkup-vim.git

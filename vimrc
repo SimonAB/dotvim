@@ -138,13 +138,15 @@ set number
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set background=dark
+" set background=dark
+" colorscheme = solarized
+" set guifont = Source\ Code\ Pro\ Light:h14
 
 " Favourite colorscheme
-let g:fullscreen_colorscheme = "iawriter"
-let g:fullscreen_font = "Cousine:h14"
 let g:normal_colorscheme = "solarized"
 let g:normal_font= "Source\ Code\ Pro\ Light:h14"
+let g:fullscreen_colorscheme = "iawriter"
+let g:fullscreen_font = "Cousine:h14"
 
 
 " Toggle light and dark themes
