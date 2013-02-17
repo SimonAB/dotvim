@@ -138,16 +138,15 @@ set number
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" set background=dark
-" colorscheme = solarized
-" set guifont = Source\ Code\ Pro\ Light:h14
+colorscheme solarized
+set guifont=Source\ Code\ Pro\ Light:h14
+set background=dark
 
 " Favourite colorscheme
 let g:normal_colorscheme = "solarized"
 let g:normal_font= "Source\ Code\ Pro\ Light:h14"
 let g:fullscreen_colorscheme = "iawriter"
 let g:fullscreen_font = "Cousine:h14"
-
 
 " Toggle light and dark themes
 nmap <leader>d :set bg=dark<cr>:set guifont=Source\ Code\ Pro\ Light:h14<cr>
