@@ -22,7 +22,7 @@ To commit & upload changes to git:
     git commit -m "<description>"
     git push
 
-To remove a submodule you need to:
+To remove a submodule:
 
 1. Delete the relevant section from the .gitmodules file.
 2. Delete the relevant section from .git/config.
