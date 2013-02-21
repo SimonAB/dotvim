@@ -78,6 +78,9 @@ set so=7
 " Turn on the Wild menu
 set wildmenu
 
+" Hide rightside scrollbar
+set guioptions-=r 
+
 " Ignore compiled files
 set wildignore=*.o,*~,*.pyc
 if has("win16") || has("win32")
@@ -491,7 +494,7 @@ nmap <leader>md :Mkd<cr>
 nmap <leader>x :w<cr>:!chmod 755 %<cr>:e<cr>
 
 " Toggle Gundo
-map <F5> :GundoToggle<cr>
+map  <localleader>g :GundoToggle<cr>
 
 " Remove OPML tags
 command! OPMLCleanup :%s/<.*="\(.*\)".*/\1/g 
