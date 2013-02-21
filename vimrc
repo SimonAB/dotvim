@@ -78,6 +78,9 @@ set so=7
 " Turn on the Wild menu
 set wildmenu
 
+" Hide rightside scrollbar
+set guioptions-=r 
+
 " Ignore compiled files
 set wildignore=*.o,*~,*.pyc
 if has("win16") || has("win32")
