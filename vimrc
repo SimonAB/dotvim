@@ -497,8 +497,8 @@ map <F5> :GundoToggle<cr>
 command! OPMLCleanup :%s/<.*="\(.*\)".*/\1/g 
 
 " Execute current buffer with python3
-map <localleader>p3 :! python3 %<cr>
-map <localleader>p2 :! python %<cr>
+map <localleader>P3 :! python3 %<cr>
+map <localleader>P2 :! python %<cr>
 
 " Quicker ack 
 nmap <leader>a <Esc>:Ack!
