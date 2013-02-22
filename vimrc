@@ -175,6 +175,10 @@ set ffs=unix,dos,mac
 " Set up the gui cursor to look nice
 set guicursor=n-v-c:block-Cursor-blinkon0,ve:ver35-Cursor,o:hor50-Cursor,i-ci:ver25-Cursor-blinkwait700-blinkoff400-blinkon800,r-cr:hor20-Cursor,sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
 
+" Change cursor shape in iTerm2
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+
 " Hide MacVim toolbar by default
 set go-=T
 
@@ -390,6 +394,15 @@ map <leader>co ggVGy:tabnew<cr>:set syntax=qf<cr>pgg
 map <leader>n :cn<cr>
 map <leader>p :cp<cr>
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Playing nice with R
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let r_syntax_folding = 1
+
+if &term =~ "xterm" || &term =~ "256" || $DISPLAY != ""
+    set t_Co=256
+endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Spell checking
