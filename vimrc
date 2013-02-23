@@ -335,10 +335,14 @@ set viminfo^=%
 " Always show the status line
 set laststatus=2
 
+" Powerline settings
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+let g:Powerline_theme="default"
+let g:Powerline_colorscheme="solarized"
+
 " Format the status line
 " set statusline=%f\ %m\ %r%{fugitive#statusline()}\ %h\ Line:%l/%L[%p%%]\ Col:%v\ Buf:#%n
 " set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
-set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Editing mappings
