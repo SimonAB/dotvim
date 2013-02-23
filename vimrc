@@ -142,12 +142,12 @@ set number
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 colorscheme solarized
-set guifont=Source\ Code\ Pro\ Light\ for\ Powerline:h14
-set background=dark
+set guifont=Source\ Code\ Pro\ for\ Powerline:h14
+set background=light
 
 " Favourite colorscheme
 let g:normal_colorscheme = "solarized"
-let g:normal_font= "Source\ Code\ Pro\ Light\ for\ Powerline:h14"
+let g:normal_font= "Source\ Code\ Pro\ for\ Powerline:h14"
 let g:fullscreen_colorscheme = "iawriter"
 let g:fullscreen_font = "Cousine:h14"
 
