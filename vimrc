@@ -142,18 +142,18 @@ set number
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 colorscheme solarized
-set guifont=Source\ Code\ Pro\ Light:h14
+set guifont=Source\ Code\ Pro\ Light\ for\ Powerline:h14
 set background=dark
 
 " Favourite colorscheme
 let g:normal_colorscheme = "solarized"
-let g:normal_font= "Source\ Code\ Pro\ Light:h14"
+let g:normal_font= "Source\ Code\ Pro\ Light\ for\ Powerline:h14"
 let g:fullscreen_colorscheme = "iawriter"
 let g:fullscreen_font = "Cousine:h14"
 
 " Toggle light and dark themes
-nmap <leader>d :set bg=dark<cr>:set guifont=Source\ Code\ Pro\ Light:h14<cr>
-nmap <leader>l :set bg=light<cr>:set guifont=Source\ Code\ Pro:h14<cr>
+nmap <leader>d :set bg=dark<cr>:set guifont=Source\ Code\ Pro\ Light\ for\ Powerline:h14<cr>
+nmap <leader>l :set bg=light<cr>:set guifont=Source\ Code\ Pro\ for\ Powerline:h14<cr>
 
 " Enable syntax highlighting
 syntax enable 
@@ -167,7 +167,7 @@ if has("gui_running")
 endif
 
 " Set utf8 as standard encoding and en_US as the standard language
-set encoding=utf8
+set encoding=utf-8
 
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
@@ -336,9 +336,9 @@ set viminfo^=%
 set laststatus=2
 
 " Format the status line
-set statusline=%f\ %m\ %r%{fugitive#statusline()}\ %h\ Line:%l/%L[%p%%]\ Col:%v\ Buf:#%n
+" set statusline=%f\ %m\ %r%{fugitive#statusline()}\ %h\ Line:%l/%L[%p%%]\ Col:%v\ Buf:#%n
 " set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
-
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Editing mappings
