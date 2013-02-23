@@ -142,18 +142,18 @@ set number
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 colorscheme solarized
-set guifont=Source\ Code\ Pro\ Light:h14
+set guifont=Source\ Code\ Pro\ Light\ for\ Powerline:h14
 set background=dark
 
 " Favourite colorscheme
 let g:normal_colorscheme = "solarized"
-let g:normal_font= "Source\ Code\ Pro\ Light:h14"
+let g:normal_font= "Source\ Code\ Pro\ Light\ for\ Powerline:h14"
 let g:fullscreen_colorscheme = "iawriter"
 let g:fullscreen_font = "Cousine:h14"
 
 " Toggle light and dark themes
-nmap <leader>d :set bg=dark<cr>:set guifont=Source\ Code\ Pro\ Light:h14<cr>
-nmap <leader>l :set bg=light<cr>:set guifont=Source\ Code\ Pro:h14<cr>
+nmap <leader>d :set bg=dark<cr>:set guifont=Source\ Code\ Pro\ Light\ for\ Powerline:h14<cr>
+nmap <leader>l :set bg=light<cr>:set guifont=Source\ Code\ Pro\ for\ Powerline:h14<cr>
 
 " Enable syntax highlighting
 syntax enable 
@@ -168,13 +168,17 @@ endif
 set t_Co=256
 
 " Set utf8 as standard encoding and en_US as the standard language
-set encoding=utf8
+set encoding=utf-8
 
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
 
 " Set up the gui cursor to look nice
 set guicursor=n-v-c:block-Cursor-blinkon0,ve:ver35-Cursor,o:hor50-Cursor,i-ci:ver25-Cursor-blinkwait700-blinkoff400-blinkon800,r-cr:hor20-Cursor,sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
+
+" Change cursor shape in iTerm2
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 
 " Hide MacVim toolbar by default
 set go-=T
@@ -332,10 +336,14 @@ set viminfo^=%
 " Always show the status line
 set laststatus=2
 
-" Format the status line
-set statusline=%f\ %m\ %r%{fugitive#statusline()}\ %h\ Line:%l/%L[%p%%]\ Col:%v\ Buf:#%n
-" set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
+" Powerline settings
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+let g:Powerline_theme="default"
+let g:Powerline_colorscheme="solarized"
 
+" Format the status line
+" set statusline=%f\ %m\ %r%{fugitive#statusline()}\ %h\ Line:%l/%L[%p%%]\ Col:%v\ Buf:#%n
+" set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Editing mappings
@@ -391,6 +399,15 @@ map <leader>co ggVGy:tabnew<cr>:set syntax=qf<cr>pgg
 map <leader>n :cn<cr>
 map <leader>p :cp<cr>
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Playing nice with R
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let r_syntax_folding = 1
+
+if &term =~ "xterm" || &term =~ "256" || $DISPLAY != ""
+    set t_Co=256
+endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Spell checking
