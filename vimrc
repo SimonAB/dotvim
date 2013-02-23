@@ -2,12 +2,6 @@
 " Adapted_by_Simon_Babayan_from: 
 "       Amir Salihefendic  http://amix.dk - amix@amix.dk
 "
-" Last_modif:
-"       2013-01-21_12:58:50
-"       
-" Version: 
-"       5.0 - 29/05/12 15:43:36
-"
 " Blog_post: 
 "       http://amix.dk/blog/post/19691#The-ultimate-Vim-configuration-on-Github
 "
@@ -29,6 +23,7 @@
 "    -> Status line
 "    -> Editing mappings
 "    -> vimgrep searching and cope displaying
+"    -> Playing nice with R
 "    -> Spell checking
 "    -> Misc
 "    -> Helper functions
@@ -45,7 +40,6 @@ execute pathogen#infect()
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
-
 " Sets how many lines of history VIM has to remember
 set history=700
 
@@ -60,14 +54,15 @@ endif
 " Set to auto read when a file is changed on disk from the outside
 set autoread
 
-" With a map leader it's possible to do extra key combinations
-" like <leader>w saves the current file
-let mapleader = ","
-let g:mapleader = ","
+" Leaving default <Leader> as "\", but remapping LocaLeader to ","
+let maplocalleader = ","
+let g:maplocalleader = ","
 
 " Fast saving
 nmap <leader>w :w!<cr>
 
+" Load vimrc faster
+nmap <localleader>s :so ~/.vim/vimrc<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
@@ -110,6 +105,7 @@ set smartcase
 
 " Highlight search results
 set hlsearch
+nmap <localleader>h :nohlsearch<CR>
 
 " Makes search act like incremental search in modern browsers
 set incsearch 
@@ -141,15 +137,9 @@ set number
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-colorscheme solarized
-set guifont=Source\ Code\ Pro\ for\ Powerline:h14
+set t_Co=256
 set background=light
-
-" Favourite colorscheme
-let g:normal_colorscheme = "solarized"
-let g:normal_font= "Source\ Code\ Pro\ for\ Powerline:h14"
-let g:fullscreen_colorscheme = "iawriter"
-let g:fullscreen_font = "Cousine:h14"
+colorscheme solarized
 
 " Toggle light and dark themes
 nmap <leader>d :set bg=dark<cr>:set guifont=Source\ Code\ Pro\ Light\ for\ Powerline:h14<cr>
@@ -158,60 +148,48 @@ nmap <leader>l :set bg=light<cr>:set guifont=Source\ Code\ Pro\ for\ Powerline:h
 " Enable syntax highlighting
 syntax enable 
 
-" Set extra options when running in GUI mode
-if has("gui_running")
-    set guioptions-=e
-    set guioptions-=T
-    set guitablabel=%M\ %t
-endif
-
-set t_Co=256
-
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf-8
 
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
 
-" Set up the gui cursor to look nice
-set guicursor=n-v-c:block-Cursor-blinkon0,ve:ver35-Cursor,o:hor50-Cursor,i-ci:ver25-Cursor-blinkwait700-blinkoff400-blinkon800,r-cr:hor20-Cursor,sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
-
 " Change cursor shape in iTerm2
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 
-" Hide MacVim toolbar by default
-set go-=T
-
 " Keep 3 lines below and above the cursor
 set scrolloff=3 
 
+" Set extra options when running in GUI mode
+if has("gui_running")
+    set guifont=Source\ Code\ Pro\ for\ Powerline:h14
+    set guioptions-=e
+    set guioptions-=T
+    set guitablabel=%M\ %t
+    " Set up the gui cursor to look nice
+    set guicursor=n-v-c:block-Cursor-blinkon0,ve:ver35-Cursor,o:hor50-Cursor,i-ci:ver25-Cursor-blinkwait700-blinkoff400-blinkon800,r-cr:hor20-Cursor,sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
+endif
+
+" Hide MacVim toolbar by default
+set go-=T
+
+" Favourite colorscheme for distraction-free plugin
+let g:normal_colorscheme = "solarized"
+let g:normal_font= "Source\ Code\ Pro\ for\ Powerline:h14"
+let g:fullscreen_colorscheme = "iawriter"
+let g:fullscreen_font = "Cousine:h14"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Line wrapping, line breaks, textwidth
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Linebreak & Wrap (SB)
+" Linebreak & Wrap
 set linebreak
 set nolist  " list disables linebreak
 set tw=0
 set wrap "Wrap lines visually
 set wrapmargin=0
-set formatoptions=l " Prevent Vim from automatically inserting line breaks when text is entered 
-
-" Aligning tabls, etc. (taken from Tim Pope's https://gist.github.com/287147)
-inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
- 
-function! s:align()
-  let p = '^\s*|\s.*\s|\s*$'
-  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
-    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
-    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
-    Tabularize/|/l1
-    normal! 0
-    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
-  endif
-endfunction
-
+set formatoptions+=l " Prevent Vim from automatically inserting line breaks when text is entered 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
@@ -225,7 +203,7 @@ set noswapfile
 au FocusLost * silent! wa
 
 " Save when switching windows
-" set autowrite
+set autowrite
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
@@ -250,12 +228,30 @@ set foldlevelstart=1
 " These commands open folds
 set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
 
+" Toggle fold with spacebar
+nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+vnoremap <Space> zf
+
 " Markdown-folding
 set nocompatible
 let g:markdown_fold_style = 'nested'
 
 " ignore all whitespace and sync
 set diffopt=filler,iwhite 
+
+" Aligning tables, etc. (taken from Tim Pope's https://gist.github.com/287147)
+inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
+ 
+function! s:align()
+  let p = '^\s*|\s.*\s|\s*$'
+  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
+    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+    Tabularize/|/l1
+    normal! 0
+    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+  endif
+endfunction
 
 """"""""""""""""""""""""""""""
 " => Visual mode related
@@ -274,13 +270,6 @@ set nrformats=alpha
 " Treat long lines as break lines (useful when moving around in them)
 map j gj
 map k gk
-
-" Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
-map <space> /
-map <c-space> ?
-
-" Disable highlight when <leader><cr> is pressed
-map <silent> <leader><cr> :noh<cr>
 
 " Settings for CtrlP
 let g:ctrlp_max_height = 40
@@ -354,6 +343,7 @@ map 0 ^
 " Bubble single lines (relies on Tim Pope's pluggin unimpaired)
 nmap <C-Up> [e
 nmap <C-Down> ]e
+
 " Bubble multiple lines (relies on Tim Pope's pluggin unimpaired)
 vmap <C-Up> [egv
 vmap <C-Down> ]egv
@@ -384,13 +374,10 @@ map <leader><space> :vimgrep // <C-R>%<C-A><right><right><right><right><right><r
 vnoremap <silent> <leader>r :call VisualSelection('replace', '')<CR>
 
 " Do :help cope if you are unsure what cope is. It's super useful!
-"
 " When you search with vimgrep, display your results in cope by doing:
 "   <leader>cc
-"
 " To go to the next search result do:
 "   <leader>n
-"
 " To go to the previous search results do:
 "   <leader>p
 "
@@ -398,7 +385,6 @@ map <leader>cc :botright cope<cr>
 map <leader>co ggVGy:tabnew<cr>:set syntax=qf<cr>pgg
 map <leader>n :cn<cr>
 map <leader>p :cp<cr>
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Playing nice with R
@@ -435,8 +421,6 @@ map <leader>q :e ~/buffer<cr>
 
 " Toggle paste mode on and off
 map <leader>pp :setlocal paste!<cr>
-
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
