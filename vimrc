@@ -46,6 +46,10 @@ set history=700
 " Better copy & paste (integrates better with system clipboard)
 set clipboard=unnamed
 
+if $TMUX == ''
+    set clipboard+=unnamed
+endif
+
 " Enable filetype plugins
 if has("autocmd")
   filetype plugin indent on
