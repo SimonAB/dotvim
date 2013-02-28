@@ -44,8 +44,6 @@ call pathogen#helptags()
 set history=700
 
 " Better copy & paste (integrates better with system clipboard)
-set clipboard=unnamed
-
 if $TMUX == ''
     set clipboard+=unnamed
 endif
