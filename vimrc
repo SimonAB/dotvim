@@ -391,6 +391,10 @@ map <leader>p :cp<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Playing nice with R
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" let vimrplugin_tmux = 1
+" let vimrplugin_only_in_tmux = 1
+let vimrplugin_screenplugin = 0
+
 let r_syntax_folding = 1
 
 if &term =~ "xterm" || &term =~ "256" || $DISPLAY != ""
