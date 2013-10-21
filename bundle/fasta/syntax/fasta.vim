@@ -1,7 +1,7 @@
 " Vim syntax file
 " Language:	Fasta (Pearson)
 " Maintainer:	Luis-Miguel Rodriguez <lmrodriguezr@gmail.com>
-" Last Change:	2008 Mar 18
+" Last Change:	2013-10-21 addition of *.fna by Simon Babayan
 
 " For version 5.x: Clear all syntax items
 " For version 6.x: Quit when a syntax file was already loaded
